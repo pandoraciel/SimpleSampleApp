@@ -1,0 +1,40 @@
+﻿@model IEnumerable<SimpleSampleApp.Models.WeatherForecast>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <div>
+        <table class="table table-striped" id="WeatherForecast">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>TemperatureC</th>
+                    <th>TemperatureF</th>
+                    <th>Summary</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Date</td>
+                        <td>@item.TemperatureC</td>
+                        <td>@item.TemperatureF</td>
+                        <td>@item.Summary</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section Scripts{
+<script>
+    $(document).ready(function () {
+        $('#WeatherForecast').dataTable({
+            "pageLength": 5,
+            "lengthChange": false
+        });
+    });
+</script>
+}
